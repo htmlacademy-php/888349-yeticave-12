@@ -41,6 +41,16 @@ $adverts = [
         'image_url'   => 'img/lot-6.jpg',
     ],
 ];
+
+function makePrice ($number) {
+    $price = ceil($number);
+    if ($price >= 1000) {
+        $price = number_format($price, 0, '.', ' ');
+    }
+
+    return $price . '₽';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -119,7 +129,7 @@ $adverts = [
                             <div class="lot__state">
                                 <div class="lot__rate">
                                     <span class="lot__amount">Стартовая цена</span>
-                                    <span class="lot__cost"><?=$advert['price'] ?><b class="rub">р</b></span>
+                                    <span class="lot__cost"><?=makePrice($advert['price']) ?></span>
                                 </div>
                                 <div class="lot__timer timer">
                                     12:23
