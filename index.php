@@ -9,42 +9,42 @@ $dataTemplate = [
             'category' => 'Доски и лыжи',
             'price'   => '10999',
             'image_url'   => 'img/lot-1.jpg',
-            'expiration_date'   => '2020-04-12',
+            'expiration_date'   => '2020-04-13',
         ],
         [
             'name' => 'DC Ply Mens 2016/2017 Snowboard',
             'category' => 'Доски и лыжи',
             'price'   => '159999',
             'image_url'   => 'img/lot-2.jpg',
-            'expiration_date'   => '2020-04-13',
+            'expiration_date'   => '2020-04-14',
         ],
         [
             'name' => 'Крепления Union Contact Pro 2015 года размер L/XL',
             'category' => 'Крепления',
             'price'   => '8000',
             'image_url'   => 'img/lot-3.jpg',
-            'expiration_date'   => '2020-04-14',
+            'expiration_date'   => '2020-04-15',
         ],
         [
             'name' => 'Ботинки для сноуборда DC Mutiny Charocal',
             'category' => 'Ботинки',
             'price'   => '10999',
             'image_url'   => 'img/lot-4.jpg',
-            'expiration_date'   => '2020-04-15',
+            'expiration_date'   => '2020-04-16',
         ],
         [
             'name' => 'Куртка для сноуборда DC Mutiny Charocal',
             'category' => 'Одежда',
             'price'   => '7500',
             'image_url'   => 'img/lot-5.jpg',
-            'expiration_date'   => '2020-04-16',
+            'expiration_date'   => '2020-04-17',
         ],
         [
             'name' => 'Маска Oakley Canopy',
             'category' => 'Разное',
             'price'   => '5400',
             'image_url'   => 'img/lot-6.jpg',
-            'expiration_date'   => '2020-04-17',
+            'expiration_date'   => '2020-04-18',
         ]
     ],
     'makePrice' =>  function ($number) {
@@ -56,20 +56,24 @@ $dataTemplate = [
         return $price . ' ₽';
     },
     'timeLeft'  => function ($expirationDate) {
-        $currentTime = strtotime(date("Y-m-d h:i:sa"));
+        $time = time();
         $expirationDate = strtotime($expirationDate);
-        $number = strval(($expirationDate - $currentTime) / 60);
-        $hoursLeft = $number / 60;
-        $minutesLeft = explode('.', $hoursLeft);
-        $minutesArray = isset($minutesLeft[1]) ? str_split($minutesLeft[1]): 0;
-        if (isset($minutesArray[0]) && isset($minutesArray[1])) {
-            $minutesLeft = ($minutesArray[0] . $minutesArray[1]) / 100 * 60;
-        } else if (isset($minutesArray[0])){
-            $minutesLeft = $minutesArray[0] / 10 * 60;
+        $diffTime = ($expirationDate - $time);
+        if ($diffTime > 0) {
+            $hoursLeft = $diffTime / 3600;
+            $minutesLeft = ($diffTime % 3600) / 60;
+//        $minutesArray = isset($minutesLeft[1]) ? str_split($minutesLeft[1]): 0;
+//        if (isset($minutesArray[0]) && isset($minutesArray[1])) {
+//            $minutesLeft = ($minutesArray[0] . $minutesArray[1]) / 100 * 60;
+//        } else if (isset($minutesArray[0])){
+//            $minutesLeft = $minutesArray[0] / 10 * 60;
+//        } else {
+//            $minutesLeft = 0;
+//        }
+            return [floor($hoursLeft), ceil($minutesLeft)];
         } else {
-            $minutesLeft = 0;
+            return [0, 0];
         }
-        return [floor($hoursLeft), floor($minutesLeft)];
     },
 ];
 
