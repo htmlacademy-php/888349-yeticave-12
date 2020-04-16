@@ -1,0 +1,18 @@
+CREATE DATABASE yeticave
+    DEFAULT CHARACTER SET utf8;
+
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE adverts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(128) NOT NULL,
+    category VARCHAR(128) NOT NULL,
+    price INT NOT NULL,
+    image_url VARCHAR(128) NOT NULL,
+    expiration_date VARCHAR(128) NOT NULL
+);
+
+# USE yeticave
