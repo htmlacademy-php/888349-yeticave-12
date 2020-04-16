@@ -1,18 +1,37 @@
 CREATE DATABASE yeticave
     DEFAULT CHARACTER SET utf8;
 
-CREATE TABLE categories (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(128) NOT NULL
+
+USE yeticave;
+
+CREATE TABLE category (
+                            id INT AUTO_INCREMENT PRIMARY KEY,
+                            name VARCHAR(128) NOT NULL,
+                            symbol_code VARCHAR(128)
 );
 
-CREATE TABLE adverts (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(128) NOT NULL,
-    category VARCHAR(128) NOT NULL,
-    price INT NOT NULL,
-    image_url VARCHAR(128) NOT NULL,
-    expiration_date VARCHAR(128) NOT NULL
+CREATE TABLE lot (
+                         id INT AUTO_INCREMENT PRIMARY KEY,
+                         created_date DATETIME,
+                         name VARCHAR(128) NOT NULL,
+                         description VARCHAR(255),
+                         img_link VARCHAR(255),
+                         price INT NOT NULL,
+                         expiration_date DATETIME,
+                         step_bets INT
 );
 
-# USE yeticave
+CREATE TABLE bet (
+                     id INT AUTO_INCREMENT PRIMARY KEY,
+                     date DATETIME,
+                     price INT NOT NULL
+);
+
+CREATE TABLE user (
+                     id INT AUTO_INCREMENT PRIMARY KEY,
+                     register_date DATETIME,
+                     email VARCHAR(128),
+                     name VARCHAR(128) NOT NULL,
+                     password VARCHAR(64),
+                     contact VARCHAR(255)
+);
