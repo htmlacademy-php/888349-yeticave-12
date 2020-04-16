@@ -62,14 +62,7 @@ $dataTemplate = [
         if ($diffTime > 0) {
             $hoursLeft = $diffTime / 3600;
             $minutesLeft = ($diffTime % 3600) / 60;
-//        $minutesArray = isset($minutesLeft[1]) ? str_split($minutesLeft[1]): 0;
-//        if (isset($minutesArray[0]) && isset($minutesArray[1])) {
-//            $minutesLeft = ($minutesArray[0] . $minutesArray[1]) / 100 * 60;
-//        } else if (isset($minutesArray[0])){
-//            $minutesLeft = $minutesArray[0] / 10 * 60;
-//        } else {
-//            $minutesLeft = 0;
-//        }
+
             return [floor($hoursLeft), ceil($minutesLeft)];
         } else {
             return [0, 0];
