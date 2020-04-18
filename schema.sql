@@ -20,7 +20,8 @@ CREATE TABLE lot (
                      expiration_date DATETIME,
                      step_bets INT,
                      creatorId INT,
-                     winnerId INT
+                     winnerId INT,
+                     categoryId INT
 );
 
 CREATE TABLE bet (
