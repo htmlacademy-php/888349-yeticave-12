@@ -14,7 +14,7 @@ CREATE TABLE lot (
                          id INT AUTO_INCREMENT PRIMARY KEY,
                          created_date DATETIME,
                          name VARCHAR(128) NOT NULL,
-                         description VARCHAR(255),
+                         description VARCHAR(2560),
                          img_link VARCHAR(255),
                          price INT NOT NULL,
                          expiration_date DATETIME,
@@ -33,5 +33,5 @@ CREATE TABLE user (
                      email VARCHAR(128),
                      name VARCHAR(128) NOT NULL,
                      password VARCHAR(64),
-                     contact VARCHAR(255)
+                     contact VARCHAR(2560)
 );
