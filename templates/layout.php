@@ -53,7 +53,7 @@
             <!--заполните этот список из массива категорий-->
             <?php foreach ($categories as $category): ?>
                 <li class="nav__item">
-                    <a class="promo__link" href="pages/all-lots.html"><?= $category?></a>
+                    <a class="promo__link" href="pages/all-lots.html"><?= $category['catName']?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
