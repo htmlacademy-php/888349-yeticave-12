@@ -1,5 +1,5 @@
 CREATE DATABASE yeticave
-    DEFAULT CHARACTER SET utf8;
+    DEFAULT CHARSET utf8;
 
 
 USE yeticave;

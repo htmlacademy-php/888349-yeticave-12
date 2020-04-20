@@ -22,9 +22,7 @@ INSERT INTO user ( register_date, email, name, password, contact ) VALUES
 ( '2018-05-25 09:00:00', 'saddam@hussein.iq', 'Saddam Hussein', 'hussein', 'anywhere' );
 
 SELECT * FROM category;
-SELECT l.name, l.price, l.img_link, c.name FROM lot l JOIN category c ON l.categoryId = c.id WHERE NOW() < l.expiration_date ORDER BY l.created_date DESC;
+SELECT l.name, l.price, l.img_link, c.name categoryName FROM lot l JOIN category c ON l.categoryId = c.id WHERE NOW() < l.expiration_date ORDER BY l.created_date DESC;
 SELECT name FROM lot WHERE id=3;
 UPDATE lot SET name = 'DC Ply Mens 2017 Snowboard' WHERE id=1;
 SELECT b.lotId FROM bet b JOIN lot l ON b.lotId = l.id WHERE l.id = 3 ORDER BY b.date DESC;
-
-SELECT IF ((SELECT NOW()) < (SELECT expiration_date FROM lot WHERE id=3), SELECT l.name, l.price, l.img_link, c.name FROM lot l JOIN category c ON l.categoryId = c.id WHERE c.id = 3 ORDER BY l.created_date DESC, 'NO');
