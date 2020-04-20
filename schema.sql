@@ -6,7 +6,7 @@ USE yeticave;
 
 CREATE TABLE category (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    catName VARCHAR(128) NOT NULL,
+                    name VARCHAR(128) NOT NULL,
                     symbol_code VARCHAR(128)
 );
 

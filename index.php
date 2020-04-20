@@ -1,14 +1,13 @@
 <?php
 require('helpers.php');
+
 $con = mysqli_connect("localhost", "root", "", "yeticave");
-mysqli_set_charset($con, 'utf8');
-$sqlLot = "SELECT l.expiration_date, l.img_link, c.catName, l.price, l.name FROM lot l JOIN category c ON l.categoryId = c.id";
+$sqlLot = "SELECT l.expiration_date, l.img_link, c.name categoryName, l.price, l.name FROM lot l JOIN category c ON l.categoryId = c.id";
 $resultLot = mysqli_query($con, $sqlLot);
 $lotRows = mysqli_fetch_all($resultLot, MYSQLI_ASSOC);
-$sqlCategory = "SELECT catName FROM category";
+$sqlCategory = "SELECT name, symbol_code FROM category";
 $resultCategory = mysqli_query($con, $sqlCategory);
 $categoryRows = mysqli_fetch_all($resultCategory,MYSQLI_ASSOC);
-
 
 $dataTemplate = [
     'categories' => $categoryRows,
@@ -51,6 +50,3 @@ $render = include_template('layout.php', $dataRender);
 print($render);
 ?>
 
-
-<script src="flatpickr.js"></script>
-<script src="script.js"></script>

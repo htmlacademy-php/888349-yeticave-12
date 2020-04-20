@@ -53,7 +53,7 @@
             <!--заполните этот список из массива категорий-->
             <?php foreach ($categories as $category): ?>
                 <li class="nav__item">
-                    <a class="promo__link" href="pages/all-lots.html"><?= $category['catName']?></a>
+                    <a class="promo__link" href="pages/all-lots.html"><?= $category['name']?></a>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -100,5 +100,8 @@
     </div>
 </footer>
 
+
+<script src="flatpickr.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
